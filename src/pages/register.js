@@ -13,11 +13,6 @@ const schema = yup.object().shape({
 
   userName: yup.string().required('Necesita un nombre de usuario'),
   name: yup.string().required('Ingrese su nombre'),
-  lastname: yup.string().required('Ingrese su Apellido'),
-  phone: yup.string().required('Ingrese su Teléfono'),
-  province: yup.string().required('Ingrese provincia'),
-  canton: yup.string().required('Ingrese canton'),
-  sector: yup.string().required('Ingrese sector'),
   email: yup
       .string()
       .email("Ingrese un email válido")
@@ -93,14 +88,7 @@ const Register = () => {
             <div style={{display: 'flex', flexDirection: 'column', maxWidth: 200, minWidth: 400}}>
               <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
                 <Grid container spacing={1} alignItems="center">
-                  {/*<Grid xs={12} item>*/}
-                  {/*  <TextField*/}
-                  {/*      id='userName'*/}
-                  {/*      name='userName'*/}
-                  {/*      type='name'*/}
-                  {/*      label='Nombre de usuario'*/}
-                  {/*      ref={register}/>*/}
-                  {/*</Grid>*/}
+
                   <Grid xs={12} item>
                     <TextField
                         id="name"
@@ -113,66 +101,7 @@ const Register = () => {
                         helperText={errors.name?.message}
                     />
                   </Grid>
-                  {/*<Grid xs={6} item>*/}
-                  {/*  <TextField*/}
-                  {/*      id="lastname"*/}
-                  {/*      name="lastname"*/}
-                  {/*      type="lastname"*/}
-                  {/*      label="Apellido"*/}
-                  {/*      inputRef={register}*/}
-                  {/*      autoComplete="lastname"*/}
-                  {/*      error={!!errors.lastname}*/}
-                  {/*      helperText={errors.lastname?.message}*/}
-                  {/*  />*/}
-                  {/*</Grid>*/}
-                  {/*<Grid xs={6} item>*/}
-                  {/*  <TextField*/}
-                  {/*      id="phone"*/}
-                  {/*      name="phone"*/}
-                  {/*      type="phone"*/}
-                  {/*      label="Teléfono"*/}
-                  {/*      inputRef={register}*/}
-                  {/*      autoComplete="phone"*/}
-                  {/*      error={!!errors.phone}*/}
-                  {/*      helperText={errors.phone?.message}*/}
-                  {/*  />*/}
-                  {/*</Grid>*/}
-                  {/*<Grid xs={12} item>*/}
-                  {/*  <TextField*/}
-                  {/*      id="province"*/}
-                  {/*      name="province"*/}
-                  {/*      type="province"*/}
-                  {/*      label="Provincia"*/}
-                  {/*      inputRef={register}*/}
-                  {/*      autoComplete="province"*/}
-                  {/*      error={!!errors.province}*/}
-                  {/*      helperText={errors.province?.message}*/}
-                  {/*  />*/}
-                  {/*</Grid>*/}
-                  {/*<Grid xs={6} item>*/}
-                  {/*  <TextField*/}
-                  {/*      id="canton"*/}
-                  {/*      name="canton"*/}
-                  {/*      type="canton"*/}
-                  {/*      label="Canton"*/}
-                  {/*      inputRef={register}*/}
-                  {/*      autoComplete="canton"*/}
-                  {/*      error={!!errors.canton}*/}
-                  {/*      helperText={errors.canton?.message}*/}
-                  {/*  />*/}
-                  {/*</Grid>*/}
-                  {/*<Grid xs={6} item>*/}
-                  {/*  <TextField*/}
-                  {/*      id="sector"*/}
-                  {/*      name="sector"*/}
-                  {/*      type="sector"*/}
-                  {/*      label="Sector"*/}
-                  {/*      inputRef={register}*/}
-                  {/*      autoComplete="sector"*/}
-                  {/*      error={!!errors.sector}*/}
-                  {/*      helperText={errors.sector?.message}*/}
-                  {/*  />*/}
-                  {/*</Grid>*/}
+
                   <Grid xs={12} item>
                     <TextField
                         id="email"
@@ -217,8 +146,15 @@ const Register = () => {
                         type="submit"
                         color="primary"
                         disabled={loading}
+
                     >
-                      Registrarse
+                    <Grid>
+                      <div>
+                        <input type="submit" />
+                      </div>
+                    </Grid>
+
+                       Registrarse
                     </Button>
                   </Grid>
                 </Grid>

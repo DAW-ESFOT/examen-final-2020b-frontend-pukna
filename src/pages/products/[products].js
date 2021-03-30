@@ -15,6 +15,8 @@ import {
 import {makeStyles} from "@material-ui/core/styles";
 import Comments from "@/components/Comments";
 import {useAuth} from "@/lib/auth";
+import useSWR from "swr";
+import {fetcher} from "@/lib/utils";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -56,7 +58,9 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Articles = ({articles}) => {
+const Articles = ({articles1}) => {
+
+    const { articles, error } = useSWR(`/products/${articles1}`, fetcher);
     console.log('articles', articles)
     const {user} = useAuth()
     console.log('user', user)
@@ -128,7 +132,7 @@ const Articles = ({articles}) => {
                                             component="p"
                                             className={classes.body}
                                         >
-                                            {article.description}
+                                            {article.code}
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
@@ -182,50 +186,40 @@ const Articles = ({articles}) => {
 }
 export default Articles;
 
-export async function getStaticProps(context) {
-  console.log("context", context);
-
-  try {
-    const { articleId } = context.params;
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/products/${articleId}`
-    );
-    const data = await res.json();
-
-    console.log("data", data);
-
-    if (!data) {
-      return {
-        notFound: true,
-      };
-    }
-
-    return {
-      props: {
-        article: data,
-      }, // will be passed to the page component as props
-    };
-  } catch (error) {
-    return {
-      props: {
-        article: null,
-      },
-    };
-  }
-}
-
-export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products`);
-  const data = await res.json();
-
-  const articles = data.data;
-
-  const paths = articles.map((article) => {
-    return { params: { articleId: "" + article.id } };
-  });
-
-  return {
-    paths,
-    fallback: true, // See the "fallback" section below
-  };
-}
+// export async function getStaticProps(context) {
+//
+//     const subcategoryId = parseInt(context.params.articles)
+//     console.log('id de la categoria', subcategoryId);
+//     const response =  fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/myproducts`);
+//     const data =  response.json();
+//
+//     console.log('data', data);
+//
+//     if (!data) {
+//         return {
+//             notFound: true,
+//         }
+//     }
+//     const exact = data.data.filter(article => article.user_id === subcategoryId)
+//     console.log('exact', exact)
+//     return {
+//         props: {
+//             articles: exact
+//         }, // will be passed to the page component as props
+//     }
+// }
+//
+// export async function getStaticPaths() {
+//
+//     const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/myproducts`)
+//     const data = await response.json()
+//
+//     const paths = data.data.map(article => {
+//         return {params: {articles: '' + article.user_id}}
+//     })
+//
+//     return {
+//         paths,
+//         fallback: false // See the "fallback" section below
+//     };
+// }
