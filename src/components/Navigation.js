@@ -30,8 +30,12 @@ import IconsMenu from "./IconsMenu";
 
 const drawerWidth = 240;
 const mainMenuItems = [
-
   {
+    text: "Mis Productos",
+    to: Routes.MYPRODUCTS,
+  },
+
+    {
     text: "Productos",
     to: Routes.PRODUCTS,
   },
