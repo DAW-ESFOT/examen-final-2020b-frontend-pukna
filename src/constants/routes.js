@@ -8,6 +8,8 @@ const publicRoutes = {
   ARTICLES: "/articles",
   PRODUCTS: "/products",
   MYPRODUCTS: "/misproducts/",
+  REPRODUCTS: "/regproducts/",
+
 
   // USERS: "/usuarios",
   // USERS_ID: `/usuario/:id`,

@@ -9,17 +9,6 @@ import * as yup from "yup";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {yupResolver} from "@hookform/resolvers/yup";
 
-const schema = yup.object().shape({
-
-  userName: yup.string().required('Necesita un nombre de usuario'),
-  name: yup.string().required('Ingrese su nombre'),
-  email: yup
-      .string()
-      .email("Ingrese un email válido")
-      .required("Ingrese su email."),
-  password: yup.string().required("Ingrese su clave"),
-  password_confirmation: yup.string().required('Debe confirmar la contraseña'),
-});
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -37,9 +26,7 @@ const Register = () => {
   const {register: doRegister} = useAuth();
   const classes = useStyles();
   const [loading, setLoading] = useState(false);
-  const {register, handleSubmit, errors} = useForm({
-    resolver: yupResolver(schema)
-  })
+  const {register, handleSubmit, errors} = useForm();
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -148,11 +135,7 @@ const Register = () => {
                         disabled={loading}
 
                     >
-                    <Grid>
-                      <div>
-                        <input type="submit" />
-                      </div>
-                    </Grid>
+
 
                        Registrarse
                     </Button>
