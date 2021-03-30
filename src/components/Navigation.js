@@ -32,7 +32,7 @@ const drawerWidth = 240;
 const mainMenuItems = [
   {
     text: "Mis Productos",
-    to: Routes.MYPRODUCTS,
+    to: Routes.ARTICLES,
   },
 
     {
