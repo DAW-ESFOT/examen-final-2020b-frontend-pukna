@@ -1,7 +1,3 @@
-/**
- * Created by chalosalvador on 17/01/2019.
- */
-
 const publicRoutes = {
   LOGIN: "/login",
   REGISTER: "/registro",
@@ -9,11 +5,12 @@ const publicRoutes = {
   PRODUCTS: "/products",
   MYPRODUCTS: "/misproducts/",
   REPRODUCTS: "/regproducts/",
+  ABOUT: "/about"
 
 
   // USERS: "/usuarios",
   // USERS_ID: `/usuario/:id`,
-  ABOUT: "/about",
+
 };
 
 const privateRoutes = {
