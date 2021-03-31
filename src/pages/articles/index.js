@@ -82,9 +82,11 @@ const useStyles = makeStyles({
 export default function CustomizedTables() {
 
     const classes = useStyles();
-    const { data, error } = useSWR("/products", fetcher);
-    const response =data;
-    console.log('datos',response);
+    const { data, error } = useSWR("/myproducts/1", fetcher);
+    const { data1, error1, mutate } = useSWR(`/user`, fetcher);
+    console.log("data", data);
+    const response =data1;
+    console.log('datos1',response);
 
 
 
@@ -94,9 +96,7 @@ export default function CustomizedTables() {
 
     return (
         <TableContainer component={Paper}>
-            <div>
 
-            </div>
             <Table className={classes.table} aria-label="customized table">
                 <TableHead>
                     <TableRow>
@@ -108,10 +108,12 @@ export default function CustomizedTables() {
                 </TableHead>
                 <TableBody>
 
-                    {data.data.map((product, index) => (
+                    {data.map((product, index) => (
 
                         <StyledTableRow key={product.name}>
+
                             <StyledTableCell component="th" scope="row">
+                                <Comments articleId={product.user}/>
                                 {product.code}
                             </StyledTableCell>
                             <StyledTableCell align="left">{product.name}</StyledTableCell>
