@@ -81,7 +81,7 @@ import {Button, Grid, Link as MuiLink} from "@material-ui/core";
 import Routes from "../constants/routes";
 import Link from 'next/link';
 import React from "react";
-import IconsFooter from "@/components/IconsFooter";
+// import IconsFooter from "@/components/IconsFooter";
 
 
 
@@ -135,30 +135,30 @@ export default function Home() {
 
             </main>
 
-            <footer>
-                <Grid container spacing={4}>
-                    <Grid item xs>
-                        <div class="">
+            {/*<footer>*/}
+            {/*    <Grid container spacing={4}>*/}
+            {/*        <Grid item xs>*/}
+            {/*            <div class="">*/}
 
-                        </div>
-                    </Grid>
-                    <Grid item xs>
+            {/*            </div>*/}
+            {/*        </Grid>*/}
+            {/*        <Grid item xs>*/}
 
-                        <Button href="https://www.facebook.com/"> <FacebookIcon color="primary"/></Button>
+            {/*            <Button href="https://www.facebook.com/"> <FacebookIcon color="primary"/></Button>*/}
 
-                    </Grid>
-                    <Grid item xs>
+            {/*        </Grid>*/}
+            {/*        <Grid item xs>*/}
 
-                        <Button href="https://web.whatsapp.com/"> <WhatsAppIcon color="primary"/></Button>
+            {/*            <Button href="https://web.whatsapp.com/"> <WhatsAppIcon color="primary"/></Button>*/}
 
-                    </Grid>
-                    <Grid item xs>
+            {/*        </Grid>*/}
+            {/*        <Grid item xs>*/}
 
-                        <Button href="https://www.instagram.com/"><InstagramIcon color="primary"/></Button>
+            {/*            <Button href="https://www.instagram.com/"><InstagramIcon color="primary"/></Button>*/}
 
-                    </Grid>
-                </Grid>
-            </footer>
+            {/*        </Grid>*/}
+            {/*    </Grid>*/}
+            {/*</footer>*/}
         </div>
     )
 }
